@@ -1,4 +1,4 @@
-﻿/// <reference path="C:\Users\Andres Vargas\documents\visual studio 2015\Projects\sdHelper\sdHelper\test.html" />
+/// <reference path="C:\Users\Andres Vargas\documents\visual studio 2015\Projects\sdHelper\sdHelper\test.html" />
 'use strict';
 
 angular.module("SDHelper", [])
@@ -11,7 +11,7 @@ angular.module("SDHelper", [])
 
             $http({
                 method: 'GET',
-                url: 'api/handler',
+                url: 'http://sdhelper.azurewebsites.net/api/handler',
                 responseType: 'arraybuffer',
                 params: { ver: ver_data, step: step_list },
             }).success(function (data, status, headers) {
@@ -65,7 +65,7 @@ function serializeForm() {
 
 function cleanup() {
     $.ajax({
-        url: "/api/cleaner/", // be consistent and case the route the same as the ApiController
+        url: "http://sdhelper.azurewebsites.net/api/cleaner/", // be consistent and case the route the same as the ApiController
         type: "POST",
         dataType: 'json',
         data: "=" + sessionStorage.stamp, // add an = sign
