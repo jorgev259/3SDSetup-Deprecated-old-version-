@@ -11,7 +11,7 @@ angular.module("SDHelper", [])
 
             $http({
                 method: 'GET',
-                url: 'http://sdhelper.azurewebsites.net/api/handler',
+                url: 'https://sdhelper.azurewebsites.net/api/handler',
                 responseType: 'arraybuffer',
                 params: { ver: ver_data, step: step_list },
             }).success(function (data, status, headers) {
@@ -65,7 +65,7 @@ function serializeForm() {
 
 function cleanup() {
     $.ajax({
-        url: "http://sdhelper.azurewebsites.net/api/cleaner/", // be consistent and case the route the same as the ApiController
+        url: "https://sdhelper.azurewebsites.net/api/cleaner/", // be consistent and case the route the same as the ApiController
         type: "POST",
         dataType: 'json',
         data: "=" + sessionStorage.stamp, // add an = sign
