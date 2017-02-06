@@ -37,7 +37,7 @@ angular.module("SDHelper", [])
                     });
                     linkElement.dispatchEvent(clickEvent);
 
-                    cleanup();
+                    cleanup(text);
                 } catch (ex) {
                     console.log(ex);
                 }
@@ -62,12 +62,12 @@ function serializeForm() {
     return data;
 }
 
-function cleanup() {
+function cleanup(stamp) {
     $.ajax({
         url: "https://sdhelper.azurewebsites.net/api/cleaner/", // be consistent and case the route the same as the ApiController
         type: "POST",
         dataType: 'json',
-        data: "=" + sessionStorage.stamp, // add an = sign
+        data: "=" + stamp, // add an = sign
         success: function (result) {
             console.log(result);
         },
