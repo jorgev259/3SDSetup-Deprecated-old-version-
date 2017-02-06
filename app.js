@@ -17,7 +17,6 @@ angular.module("SDHelper", [])
             }).success(function (data, status, headers) {
                 headers = headers();
 
-                var filename = headers['x-filename'];
                 var contentType = headers['content-type'];
 
                 var linkElement = document.createElement('a');
@@ -26,10 +25,7 @@ angular.module("SDHelper", [])
                     var url = window.URL.createObjectURL(blob);
 
                     linkElement.setAttribute('href', url);
-                    linkElement.setAttribute("download", filename);
-
-                    sessionStorage.stamp = filename;
-                    console.log(sessionStorage.stamp);
+                    linkElement.setAttribute("download", "pack.zip");
 
                     var clickEvent = new MouseEvent("click", {
                         "view": window,
