@@ -9,12 +9,7 @@ angular.module("SDHelper", [])
             var ver_data = JSON.stringify(serializeForm());
             var step_list = JSON.stringify(set_step_list());
             
-            var text = "";
-            var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-            for( var i=0; i < 4; i++ ){
-                text += possible.charAt(Math.floor(Math.random() * possible.length));
-            }
+            var text = Math.random().toString(36).substr(2, length)
 
 
             $http({
