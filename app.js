@@ -9,14 +9,14 @@ angular.module("SDHelper", [])
             var ver_data = JSON.stringify(serializeForm());
             var step_list = JSON.stringify(set_step_list());
             
-            var text = Math.random().toString(36).substr(2, length)
+            var text = Math.random().toString(36).substr(2, 4);
 
 
             $http({
                 method: 'GET',
                 url: 'https://sdhelper.azurewebsites.net/api/handler',
                 responseType: 'arraybuffer',
-                params: { ver: ver_data, step: step_list, stamp = text },
+                params: { ver: ver_data, step: step_list, stamp : text },
             }).success(function (data, status, headers) {
                 headers = headers();
 
