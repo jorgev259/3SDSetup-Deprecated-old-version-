@@ -8,12 +8,20 @@ angular.module("SDHelper", [])
         if (set_step_list() !== false) {
             var ver_data = JSON.stringify(serializeForm());
             var step_list = JSON.stringify(set_step_list());
+            
+            var text = "";
+            var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+            for( var i=0; i < 4; i++ ){
+                text += possible.charAt(Math.floor(Math.random() * possible.length));
+            }
+
 
             $http({
                 method: 'GET',
                 url: 'https://sdhelper.azurewebsites.net/api/handler',
                 responseType: 'arraybuffer',
-                params: { ver: ver_data, step: step_list },
+                params: { ver: ver_data, step: step_list, stamp = text },
             }).success(function (data, status, headers) {
                 headers = headers();
 
