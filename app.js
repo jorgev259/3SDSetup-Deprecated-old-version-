@@ -1,4 +1,3 @@
-/// <reference path="C:\Users\Andres Vargas\documents\visual studio 2015\Projects\sdHelper\sdHelper\test.html" />
 'use strict';
 
 angular.module("SDHelper", [])
