@@ -1,9 +1,11 @@
-'use strict';
+//'use strict';
 
-angular.module("SDHelper", [])
+//angular.module("SDHelper", [])
 
-.controller("AppController", ["$scope", "$http", function ($scope, $http) {
-    $scope.downloadFile = function () {
+//.controller("AppController", ["$scope", "$http", function ($scope, $http) {
+    //$scope.downloadFile = function () {
+
+function sequence(){
         if (set_step_list() !== false) {
             var ver_data = JSON.stringify(serializeForm());
             var step_list = JSON.stringify(set_step_list());
@@ -11,7 +13,7 @@ angular.module("SDHelper", [])
             var text = Math.random().toString(36).substr(2, 4);
 
 
-            $http({
+            $.get({
                 method: 'GET',
                 url: 'https://sdhelper.azurewebsites.net/api/handler',
                 responseType: 'arraybuffer',
@@ -43,11 +45,12 @@ angular.module("SDHelper", [])
             }).error(function (data) {
                 console.log(data);
             });
-        }   
-    };
+        }
+}
+    //};
 
     
-}]);
+//}]);
 
 function serializeForm() {
     var form_data = $("#data_ver").serializeArray();
