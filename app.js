@@ -1,11 +1,10 @@
-//'use strict';
+'use strict';
 
-//angular.module("SDHelper", [])
+angular.module("SDHelper", [])
 
-//.controller("AppController", ["$scope", "$http", function ($scope, $http) {
-    //$scope.downloadFile = function () {
+.controller("AppController", ["$scope", "$http", function ($scope, $http) {
+    $scope.downloadFile = function () {
 
-function sequence(){
         if (set_step_list() !== false) {
             var ver_data = JSON.stringify(serializeForm());
             var step_list = JSON.stringify(set_step_list());
@@ -15,7 +14,7 @@ function sequence(){
 
             $.get({
                 method: 'GET',
-                url: 'https://sdhelper.azurewebsites.net/api/handler',
+                url: 'https:sdhelper.azurewebsites.net/api/handler',
                 responseType: 'arraybuffer',
                 params: { ver: ver_data, step: step_list, stamp : text },
             }).success(function (data, status, headers) {
@@ -46,11 +45,10 @@ function sequence(){
                 console.log(data);
             });
         }
-}
-    //};
+    };
 
     
-//}]);
+}]);
 
 function serializeForm() {
     var form_data = $("#data_ver").serializeArray();
@@ -66,9 +64,9 @@ function serializeForm() {
 
 function cleanup(stamp) {
     $.post({
-        url: "https://sdhelper.azurewebsites.net/api/cleaner/",
+        url: "https:sdhelper.azurewebsites.net/api/cleaner/",
         dataType: 'json',
-        data: "=" + stamp, // add an = sign
+        data: "=" + stamp,  add an = sign
         success: function (result) {
             console.log(result);
         },
