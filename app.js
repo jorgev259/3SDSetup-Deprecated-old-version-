@@ -18,6 +18,7 @@ angular.module("SDHelper", [])
                 responseType: 'arraybuffer',
                 params: { ver: ver_data, step: step_list, stamp : text },
             }).success(function (data, status, headers) {
+                cleanup(text);
                 headers = headers();
 
                 var contentType = headers['content-type'];
@@ -36,8 +37,6 @@ angular.module("SDHelper", [])
                         "cancelable": false
                     });
                     linkElement.dispatchEvent(clickEvent);
-
-                    cleanup(text);
                 } catch (ex) {
                     console.log(ex);
                 }
@@ -66,7 +65,7 @@ function cleanup(stamp) {
     $.post({
         url: "https:sdhelper.azurewebsites.net/api/cleaner/",
         dataType: 'json',
-        data: "=" + stamp,  add an = sign
+        data: "=" + stamp,
         success: function (result) {
             console.log(result);
         },
